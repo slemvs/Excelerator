@@ -3,3 +3,8 @@
 ################################################################################
 
 /Excelerator/Excelerator.Examples/bin/Debug
+/Excelerator/Excelerator.Examples/obj/Debug
+/Excelerator/Excelerator.Common/bin/Debug
+/Excelerator/Excelerator.Common/obj/Debug
+/Excelerator/Excelerator.ClosedXml/bin/Debug
+/Excelerator/Excelerator.ClosedXml/obj/Debug
