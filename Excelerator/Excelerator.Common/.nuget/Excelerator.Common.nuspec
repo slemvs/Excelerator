@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>ETR</authors>
+		<owners>ETR</owners>
+		<description></description>
+		<iconUrl>http://etr-nuget-01/docs/etr.framework/icons/$title$.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<copyright>Copyright 2017</copyright>
+		<releaseNotes></releaseNotes>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System" targetFramework=".NETFramework4" />
+		</frameworkAssemblies>
+	</metadata>
+</package>
+
+
