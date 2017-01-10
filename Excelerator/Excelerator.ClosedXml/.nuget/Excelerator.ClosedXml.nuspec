@@ -15,7 +15,8 @@
 			<frameworkAssembly assemblyName="System" targetFramework=".NETFramework4" />
 		</frameworkAssemblies>
 		<dependencies>
-			<dependency id="Excelerator.Common" version="0.1.0" />
+			<dependency id="Excelerator.Common" version="0.1.1" />
+			<dependency id="ClosedXML" version="0.86.0" />
 		</dependencies>
 	</metadata>
 </package>
