@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Import\Example1\Data\example1.xlsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

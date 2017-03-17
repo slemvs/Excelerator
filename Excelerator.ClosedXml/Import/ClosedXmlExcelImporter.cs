@@ -26,7 +26,7 @@ namespace Excelerator.ClosedXml.Import
 				var item = new T {Row = row};
 				md.ForEach(metadata =>
 				{
-					dynamic cmd = md;
+					dynamic cmd = metadata;
 					var cellValue = sh.Cell(row, colsOrder[metadata.Title]).Value;
 					cmd.SetModelPropertyValue(item, cmd.CellValue(cellValue));
 				});
@@ -76,7 +76,7 @@ namespace Excelerator.ClosedXml.Import
 					if (!isCellContainsAnyHeader)
 						isHeaderRow = false;
 				}, row, startCol, colsCount);
-				if (isHeaderRow) headerRow = row + 1;
+				if (isHeaderRow) headerRow = row;
 			}, startRow, rowsCount);
 
 			return sheet.Cell(headerRow, startCol);

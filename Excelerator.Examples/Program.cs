@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Excelerator.Examples.DependencyResolver;
 using Excelerator.Examples.Export.Example2;
+using Excelerator.Examples.Import.Example1;
 using Ninject;
 
 namespace Excelerator.Examples
@@ -16,7 +17,8 @@ namespace Excelerator.Examples
 
 			//Get<Example1>().Execute();
 
-			Get<Example2>().Execute();
+			//Get<Example2>().Execute();
+			Get<Example1>().Execute();
 		}
 
 		#region Helpers
