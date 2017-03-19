@@ -21,10 +21,17 @@ public class Example1Generator : ClosedXmlExcelGenerator<Example1Model> { }
 Next step you define metadata for each column of your Excel document.
 
 ```csharp
-var metadata = new List<ExcelColumnMetadata<Example1Model>>()
+var wsMetadata = new WorksheetMetadata<Example1Model>
 {
-  new ExcelColumnMetadata<Example1Model>() {Header = "Prop1", Value = _ => _.Prop1},
-  new ExcelColumnMetadata<Example1Model>() {Header = "Prop2", Value = _ => _.Prop2},
+	Name = "Example1",
+	StartColumn = 5,
+	StartRow = 3,
+	FormatAsTable = true,
+	ColumnsMetadata = new List<ColumnMetadata<Example1Model>>
+	{
+		new ColumnMetadata<Example1Model> {Header = "Prop1", Value = _ => _.Prop1},
+		new ColumnMetadata<Example1Model> {Header = "Prop2", Value = _ => _.Prop2}
+	}
 };
 ```
 
@@ -41,7 +48,7 @@ var data = new List<ExcelRowModel<Example1Model>>()
 }
 
 var generator = new Example1Generator();
-var ms = generator.Generate(metadata, data)
+var ms = generator.Generate(wsMetadata, data)
 ```
 
 Result file will be like this:
