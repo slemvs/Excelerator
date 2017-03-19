@@ -8,7 +8,6 @@ namespace Excelerator.Export
 	public interface IExcelGenerator<T>
 		where T : class
 	{
-		string WorksheetName { get; set; }
 		MemoryStream Generate(WorksheetMetadata<T> wsMetadata, IEnumerable<T> data);
 	}
 }

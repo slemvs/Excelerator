@@ -19,6 +19,10 @@ namespace Excelerator.Examples.Export.Example1
 		{
 			var wsMd = new WorksheetMetadata<Example1Model>
 			{
+				Name = "Example1",
+				StartColumn = 5,
+				StartRow = 3,
+				FormatAsTable = true,
 				ColumnsMetadata = new List<ColumnMetadata<Example1Model>>
 				{
 					new ColumnMetadata<Example1Model> {Header = "Prop1", Value = _ => _.Prop1},
@@ -28,7 +32,6 @@ namespace Excelerator.Examples.Export.Example1
 
 			var data = new List<Example1Model>();
 			Iterate(i => data.Add(new Example1Model {Prop1 = $"prop1_{i}", Prop2 = $"prop2_{i}"}), 20);
-			_generator.WorksheetName = "Example1";
 			SaveToFile(_generator.Generate(wsMd, data), $"{ExportExamplesPath}\\example1.xlsx");
 		}
 

@@ -5,6 +5,7 @@ using System.Linq;
 using ClosedXML.Excel;
 using Excelerator.ClosedXml.Export.Mappings;
 using Excelerator.Common.Export.Metadata;
+using Excelerator.Common.Import;
 using Excelerator.Export;
 
 namespace Excelerator.ClosedXml.Export
@@ -17,16 +18,14 @@ namespace Excelerator.ClosedXml.Export
 
 		protected XLWorkbook Workbook { get; set; }
 
-		protected int StartRow { get; set; }
-		protected int StartColumn { get; set; }
-		public string WorksheetName { get; set; }
-
 		public MemoryStream Generate(WorksheetMetadata<T> wsMetadata, IEnumerable<T> data)
 		{
 			var ms = new MemoryStream();
 			var workbook = Workbook ?? new XLWorkbook(XLEventTracking.Disabled);
-			var worksheet = workbook.Worksheets.Any() ? workbook.Worksheet(1) : workbook.Worksheets.Add(string.IsNullOrEmpty(WorksheetName) ? "Sheet1" : WorksheetName);
-			var row = StartRow == 0 ? _startRow : StartRow;
+			var worksheet = workbook.Worksheets.Any() ? workbook.Worksheet(1) : workbook.Worksheets.Add(string.IsNullOrEmpty(wsMetadata.Name) ? "Sheet1" : wsMetadata.Name);
+			var row = wsMetadata.StartRow == 0 ? _startRow : wsMetadata.StartRow;
+			var rangeStartRow = row;
+			var rangeStartColumn = wsMetadata.StartColumn == 0 ? _startCol : wsMetadata.StartColumn;
 
 			// Set headers
 			Process((i, j, md) =>
@@ -35,7 +34,7 @@ namespace Excelerator.ClosedXml.Export
 				worksheet.Cell(i, j).Value = md.Header;
 				worksheet.Cell(i, j).Style.Alignment.Horizontal = md.HorizontalAlignment.Map();
 				worksheet.Cell(i, j).Style.Alignment.Vertical = md.VerticalAlignment.Map();
-			}, row, wsMetadata.ColumnsMetadata);
+			}, row, wsMetadata);
 			row++;
 			if (data != null)
 				foreach (var val in data)
@@ -47,19 +46,23 @@ namespace Excelerator.ClosedXml.Export
 						cell.Value = value ?? string.Empty;
 						cell.Style.Alignment.Horizontal = md.HorizontalAlignment.Map();
 						cell.Style.Alignment.Vertical = md.VerticalAlignment.Map();
-					}, row, wsMetadata.ColumnsMetadata);
+					}, row, wsMetadata);
 					row++;
 				}
+
+			if (wsMetadata.FormatAsTable)
+				worksheet.Range(rangeStartRow, rangeStartColumn, row - 1, rangeStartColumn + wsMetadata.ColumnsMetadata.Count - 1).CreateTable();
+
 			workbook.SaveAs(ms);
 			ms.Position = 0;
 			return ms;
 		}
 
-		private void Process(Action<int, int, ColumnMetadata<T>> action, int currentRow, List<ColumnMetadata<T>> columns)
+		private void Process(Action<int, int, ColumnMetadata<T>> action, int currentRow, WorksheetMetadata<T> md)
 		{
-			var startCol = StartColumn == 0 ? _startCol : StartColumn;
-			for (var i = _startCol; i <= columns.Count; i++)
-				action(currentRow, i, columns.ElementAt(i - 1));
+			var startCol = md.StartColumn == 0 ? _startCol : md.StartColumn;
+			for (var i = 1; i <= md.ColumnsMetadata.Count; i++)
+				action(currentRow, startCol + i - 1, md.ColumnsMetadata.ElementAt(i - 1));
 		}
 	}
 }
