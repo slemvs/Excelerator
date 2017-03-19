@@ -48,7 +48,7 @@
 	</metadata>
 
 	<!-- A readme.txt will be displayed when the package is installed -->
-	<!--<files>
-		<file src="readme.txt" target="" />
-	</files>-->
+	<files>
+		<file src="bin\Release\**\*.dll" target="content" />
+	</files>
 </package>
