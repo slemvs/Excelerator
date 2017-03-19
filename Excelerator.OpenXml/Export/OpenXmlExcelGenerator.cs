@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
@@ -16,33 +11,31 @@ namespace Excelerator.OpenXml.Export
 	public class OpenXmlExcelGenerator<T> : IExcelGenerator<T>
 		where T : class
 	{
-		public string WorksheetName { get; set; }
-
 		public MemoryStream Generate(WorksheetMetadata<T> wsMetadata, IEnumerable<T> data)
 		{
 			var colsCount = wsMetadata.ColumnsMetadata.Count;
 			//var rowsCount = data.Count;
 
 			var ms = new MemoryStream();
-			using (SpreadsheetDocument myDoc = SpreadsheetDocument.Create(ms, SpreadsheetDocumentType.Workbook))
+			using (var myDoc = SpreadsheetDocument.Create(ms, SpreadsheetDocumentType.Workbook))
 			{
-				WorkbookPart workbookPart = myDoc.AddWorkbookPart();
+				var workbookPart = myDoc.AddWorkbookPart();
 				//WorksheetPart worksheetPart = workbookPart.AddNewPart<>() WorksheetParts.First();
 				//string origninalSheetId = workbookPart.GetIdOfPart(worksheetPart);
 
-				WorksheetPart replacementPart = workbookPart.AddNewPart<WorksheetPart>();
-				string replacementPartId = workbookPart.GetIdOfPart(replacementPart);
+				var replacementPart = workbookPart.AddNewPart<WorksheetPart>();
+				var replacementPartId = workbookPart.GetIdOfPart(replacementPart);
 
 				//OpenXmlReader reader = OpenXmlReader.Create(worksheetPart);
-				OpenXmlWriter writer = OpenXmlWriter.Create(replacementPart);
+				var writer = OpenXmlWriter.Create(replacementPart);
 
-				Row r = new Row();
-				Cell c = new Cell();
-				CellFormula f = new CellFormula();
+				var r = new Row();
+				var c = new Cell();
+				var f = new CellFormula();
 				f.CalculateCell = true;
 				f.Text = "RAND()";
 				c.Append(f);
-				CellValue v = new CellValue();
+				var v = new CellValue();
 				c.Append(v);
 
 
@@ -50,12 +43,9 @@ namespace Excelerator.OpenXml.Export
 				foreach (var el in data)
 				{
 					writer.WriteStartElement(r);
-					for (int col = 0; col < colsCount; col++)
-					{
+					for (var col = 0; col < colsCount; col++)
 						writer.WriteElement(c);
-					}
 					writer.WriteEndElement();
-					
 				}
 				writer.WriteEndElement();
 
@@ -97,7 +87,6 @@ namespace Excelerator.OpenXml.Export
 				//var sheet = workbookPart.Workbook.Descendants<Sheet>().First(s => s.Id.Value.Equals(origninalSheetId));
 				//sheet.Id.Value = replacementPartId;
 				//workbookPart.DeletePart(worksheetPart);
-
 			}
 			ms.Position = 0;
 			return ms;
