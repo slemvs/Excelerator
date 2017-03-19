@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Excelerator.Common.Export.Metadata;
 
 namespace Excelerator.Export
 {
-	public interface IExcelGenerator<TModel>
-		where TModel : class
+	public interface IExcelGenerator<T>
+		where T : class
 	{
 		string WorksheetName { get; set; }
-		MemoryStream Generate(List<ExcelColumnMetadata<TModel>> columnsMetadata, IEnumerable<ExcelRowModel<TModel>> data);
+		MemoryStream Generate(WorksheetMetadata<T> wsMetadata, IEnumerable<T> data);
 	}
 }

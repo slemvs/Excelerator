@@ -7,11 +7,11 @@ using Excelerator.Examples.Import.Example1.Model;
 
 namespace Excelerator.Examples.Import.Example1
 {
-	public class Example1 : ImportExampleBase
+	public class ImportExample1 : ImportExampleBase
 	{
 		private readonly IExcelImporter<Example1RowModel> _importer;
 
-		public Example1(IExcelImporter<Example1RowModel> importer)
+		public ImportExample1(IExcelImporter<Example1RowModel> importer)
 		{
 			_importer = importer;
 		}

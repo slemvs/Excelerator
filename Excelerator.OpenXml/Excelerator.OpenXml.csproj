@@ -47,6 +47,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\.build\VersionInfo.cs">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="Export\Mappings\OpenXmlMappings.cs" />
     <Compile Include="Export\OpenXmlExcelGenerator.cs" />

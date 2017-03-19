@@ -40,15 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\.build\VersionInfo.cs">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
     <Compile Include="Enums\HorizontalCellAlignmentValues.cs" />
     <Compile Include="Enums\VerticalCellAlignmentValues.cs" />
-    <Compile Include="Export\ExcelColumnMetadata.cs" />
-    <Compile Include="Export\ExcelRowModel.cs" />
+    <Compile Include="Export\Metadata\ColumnMetadata.cs" />
     <Compile Include="Export\IExcelGenerator.cs" />
-    <Compile Include="Export\WorkbookData.cs" />
+    <Compile Include="Export\Metadata\WorkbookMetadata.cs" />
     <Compile Include="Export\WorkbookSettings.cs" />
-    <Compile Include="Export\WorksheetData.cs" />
-    <Compile Include="Export\WorksheetSettings.cs" />
+    <Compile Include="Export\Metadata\WorksheetMetadata.cs" />
     <Compile Include="Import\ExcelColumnImportMetadata.cs" />
     <Compile Include="Import\Exceptions\ExcelImporterException.cs" />
     <Compile Include="Import\IExcelImporter.cs" />

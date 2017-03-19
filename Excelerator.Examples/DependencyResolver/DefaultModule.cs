@@ -14,8 +14,8 @@ namespace Excelerator.Examples.DependencyResolver
 	{
 		public override void Load()
 		{
-			//Kernel.Rebind<IExcelGenerator<Example2Model>>().To<Example1Generator>();
-			Kernel.Rebind<IExcelGenerator<Example21Model>>().To<Example2OpenXmlGenerator>();
+			Kernel.Rebind<IExcelGenerator<Example1Model>>().To<Example1Generator>();
+			//Kernel.Rebind<IExcelGenerator<Example21Model>>().To<Example2OpenXmlGenerator>();
 			Kernel.Rebind<IExcelImporter<Example1RowModel>>().To<Example1Importer>();
 		}
 	}

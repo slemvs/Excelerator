@@ -8,18 +8,19 @@ using System.Threading.Tasks;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
+using Excelerator.Common.Export.Metadata;
 using Excelerator.Export;
 
 namespace Excelerator.OpenXml.Export
 {
-	public class OpenXmlExcelGenerator<TModel> : IExcelGenerator<TModel>
-		where TModel : class
+	public class OpenXmlExcelGenerator<T> : IExcelGenerator<T>
+		where T : class
 	{
 		public string WorksheetName { get; set; }
 
-		public MemoryStream Generate(List<ExcelColumnMetadata<TModel>> columns, IEnumerable<ExcelRowModel<TModel>> data)
+		public MemoryStream Generate(WorksheetMetadata<T> wsMetadata, IEnumerable<T> data)
 		{
-			var colsCount = columns.Count;
+			var colsCount = wsMetadata.ColumnsMetadata.Count;
 			//var rowsCount = data.Count;
 
 			var ms = new MemoryStream();

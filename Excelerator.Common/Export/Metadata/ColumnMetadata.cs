@@ -1,9 +1,9 @@
-﻿using Excelerator.Enums;
-using System;
+﻿using System;
+using Excelerator.Enums;
 
-namespace Excelerator.Export
+namespace Excelerator.Common.Export.Metadata
 {
-	public abstract class ExcelColumnMetadata
+	public abstract class ColumnMetadata
 	{
 		public string Header { get; set; }
 		public double Width { get; set; } = 20;
@@ -11,9 +11,9 @@ namespace Excelerator.Export
 		public VerticalCellAlignmentValues VerticalAlignment { get; set; } = VerticalCellAlignmentValues.Center;
 	}
 
-	public class ExcelColumnMetadata<TModel> : ExcelColumnMetadata
-		where TModel : class
+	public class ColumnMetadata<T> : ColumnMetadata
+		where T : class
 	{
-		public Func<TModel, string> Value;
+		public Func<T, string> Value;
 	}
 }

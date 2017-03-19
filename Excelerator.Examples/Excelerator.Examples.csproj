@@ -56,16 +56,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Import\Example1\Example1.cs" />
+    <Compile Include="..\.build\VersionInfo.cs">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Import\Example1\ImportExample1.cs" />
     <Compile Include="Import\Example1\Importer\Example1Importer.cs" />
     <Compile Include="Import\Example1\Model\Example1RowModel.cs" />
     <Compile Include="Import\ImportExampleBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="DependencyResolver\DefaultModule.cs" />
-    <Compile Include="Export\Example1\Example1.cs" />
+    <Compile Include="Export\Example1\ExportExample1.cs" />
     <Compile Include="Export\Example1\Generator\Example1Generator.cs" />
     <Compile Include="Export\Example1\Model\Example1Model.cs" />
-    <Compile Include="Export\Example2\Example2.cs" />
+    <Compile Include="Export\Example2\ExportExample2.cs" />
     <Compile Include="Export\Example2\Generator\Example2Generator.cs" />
     <Compile Include="Export\Example2\Generator\Example2OpenXmlGenerator.cs" />
     <Compile Include="Export\Example2\Model\Example2Model.cs" />
