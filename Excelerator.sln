@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excelerator.Common", "Excelerator.Common\Excelerator.Common.csproj", "{75D30F7D-1C33-42E0-BE51-128D712EC3A1}"
 EndProject
@@ -13,6 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excelerator.OpenXml", "Exce
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{862AC6B4-9448-47EE-A1AE-12E25DF2783E}"
 	ProjectSection(SolutionItems) = preProject
+		.build\excelerator.nuspec = .build\excelerator.nuspec
 		.build\VersionInfo.cs = .build\VersionInfo.cs
 	EndProjectSection
 EndProject
@@ -20,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".readme", ".readme", "{ED65
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excelerator.NPOI", "Excelerator.NPOI\Excelerator.NPOI.csproj", "{68665866-FB22-4378-973F-FCEA8E497272}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,8 +46,15 @@ Global
 		{1864A702-8F24-4E2F-8A68-B890F14FC8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1864A702-8F24-4E2F-8A68-B890F14FC8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1864A702-8F24-4E2F-8A68-B890F14FC8EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68665866-FB22-4378-973F-FCEA8E497272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68665866-FB22-4378-973F-FCEA8E497272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68665866-FB22-4378-973F-FCEA8E497272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68665866-FB22-4378-973F-FCEA8E497272}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FF68B94-4EE2-4206-B8E9-095C1CC9E849}
 	EndGlobalSection
 EndGlobal

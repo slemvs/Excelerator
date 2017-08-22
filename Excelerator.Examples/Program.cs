@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Excelerator.Examples.DependencyResolver;
 using Excelerator.Examples.Export.Example1;
-using Excelerator.Examples.Import.Example1;
+using Excelerator.Examples.Export.Npoi;
 using Ninject;
 
 namespace Excelerator.Examples
@@ -15,8 +15,8 @@ namespace Excelerator.Examples
 			CheckDirs();
 			_kernel = new StandardKernel(new DefaultModule());
 
-			Get<ExportExample1>().Execute();
-
+			//Get<ExportExample1>().Execute();
+			Get<NpoiExportExample>().Execute();
 			//Get<Example2>().Execute();
 			//Get<Example1>().Execute();
 		}

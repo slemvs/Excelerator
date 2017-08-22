@@ -59,6 +59,9 @@
     <Compile Include="..\.build\VersionInfo.cs">
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Export\Npoi\Generator\NpoiExampleGenerator.cs" />
+    <Compile Include="Export\Npoi\Model\NpoiExampleModel.cs" />
+    <Compile Include="Export\Npoi\NpoiExportExample.cs" />
     <Compile Include="Import\Example1\ImportExample1.cs" />
     <Compile Include="Import\Example1\Importer\Example1Importer.cs" />
     <Compile Include="Import\Example1\Model\Example1RowModel.cs" />
@@ -90,6 +93,10 @@
     <ProjectReference Include="..\Excelerator.Common\Excelerator.Common.csproj">
       <Project>{75d30f7d-1c33-42e0-be51-128d712ec3a1}</Project>
       <Name>Excelerator.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Excelerator.NPOI\Excelerator.NPOI.csproj">
+      <Project>{68665866-fb22-4378-973f-fcea8e497272}</Project>
+      <Name>Excelerator.NPOI</Name>
     </ProjectReference>
     <ProjectReference Include="..\Excelerator.OpenXml\Excelerator.OpenXml.csproj">
       <Project>{1864a702-8f24-4e2f-8a68-b890f14fc8eb}</Project>
