@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Excelerator.Common.Export.Metadata;
+using Excelerator.Common.Models;
 using Excelerator.Enums;
 using Excelerator.Examples.Export.Npoi.Model;
 using Excelerator.Export;
@@ -21,13 +22,13 @@ namespace Excelerator.Examples.Export.Npoi
 			var wsMd = new WorksheetMetadata<NpoiExampleModel>
 			{
 				Name = "Example1",
-				StartColumn = 5,
-				StartRow = 3,
+				StartColumn = 1,
+				StartRow = 1,
 				FormatAsTable = true,
 				ColumnsMetadata = new List<ColumnMetadata<NpoiExampleModel>>
 				{
-					new ColumnMetadata<NpoiExampleModel> {Header = "Prop1", Value = _ => _.Prop1},
-					new ColumnMetadata<NpoiExampleModel> {Header = "Prop2", Value = _ => _.Prop2}
+					new ColumnMetadata<NpoiExampleModel> {Header = "Prop1", Value = _ => _.Prop1, ColumnAddress = new ColumnAddress("B")},
+					new ColumnMetadata<NpoiExampleModel> {Header = "Prop2", Value = _ => _.Prop2, ColumnAddress = new ColumnAddress("E")}
 				}
 			};
 

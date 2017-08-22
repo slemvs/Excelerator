@@ -9,5 +9,6 @@ namespace Excelerator.Export
 		where T : class
 	{
 		MemoryStream Generate(WorksheetMetadata<T> wsMetadata, IEnumerable<T> data);
+		MemoryStream Generate(MemoryStream templateStream, WorksheetMetadata<T> wsMetadata, IEnumerable<T> data);
 	}
 }

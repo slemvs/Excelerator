@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Excelerator.Common.Export.Metadata;
 using Excelerator.Export;
 using Excelerator.NPOI.Export.Mappings;
+using Excelerator.NPOI.Extensions;
 using NPOI.HSSF.UserModel;
 
 namespace Excelerator.NPOI.Export
@@ -24,10 +23,10 @@ namespace Excelerator.NPOI.Export
 				return null;
 			var ms = new MemoryStream();
 			var wb = new HSSFWorkbook();
-			var sh = (HSSFSheet)wb.CreateSheet();
-			var headerCellStyle = (HSSFCellStyle)wb.CreateCellStyle();
-			var dataCellStyle = (HSSFCellStyle)wb.CreateCellStyle();
-			var font = (HSSFFont)wb.CreateFont();
+			var sh = (HSSFSheet) wb.CreateSheet();
+			//var headerCellStyle = (HSSFCellStyle)wb.CreateCellStyle();
+			//var dataCellStyle = (HSSFCellStyle)wb.CreateCellStyle();
+			//var font = (HSSFFont)wb.CreateFont();
 
 
 			//worksheet.Cell(i, j).Style.Alignment.Horizontal = md.HorizontalAlignment.Map();
@@ -38,12 +37,14 @@ namespace Excelerator.NPOI.Export
 			var startCol = wsMetadata.StartColumn == 0 ? _startCol - 1 : wsMetadata.StartColumn - 1;
 
 			// Set headers
-			var headerRow = (HSSFRow)sh.CreateRow(row);
+			var headerRow = (HSSFRow) sh.CreateRow(row);
 			for (var i = 0; i < wsMetadata.ColumnsMetadata.Count; i++)
 			{
 				var cmd = wsMetadata.ColumnsMetadata[i];
 				var value = cmd.Header;
-				var cell = headerRow.CreateCell(startCol + i);
+				var address = cmd.ColumnAddress;
+				var cellCol = address?.Column.GetColumnNumberFromLetter() ?? startCol + i;
+				var cell = headerRow.CreateCell(cellCol);
 				cell.SetCellValue(value);
 				cell.CellStyle.Alignment = cmd.HorizontalAlignment.Map();
 				cell.CellStyle.VerticalAlignment = cmd.VerticalAlignment.Map();
@@ -52,12 +53,14 @@ namespace Excelerator.NPOI.Export
 
 			foreach (var val in dataArray)
 			{
-				var r = (HSSFRow)sh.CreateRow(row);
+				var r = (HSSFRow) sh.CreateRow(row);
 				for (var i = 0; i < wsMetadata.ColumnsMetadata.Count; i++)
 				{
 					var cmd = wsMetadata.ColumnsMetadata[i];
 					var value = cmd.Value(val);
-					var cell = r.CreateCell(startCol + i);
+					var address = cmd.ColumnAddress;
+					var cellCol = address?.Column.GetColumnNumberFromLetter() ?? startCol + i;
+					var cell = r.CreateCell(cellCol);
 					cell.SetCellValue(value);
 					cell.CellStyle.Alignment = cmd.HorizontalAlignment.Map();
 					cell.CellStyle.VerticalAlignment = cmd.VerticalAlignment.Map();
@@ -66,6 +69,11 @@ namespace Excelerator.NPOI.Export
 			}
 			wb.Write(ms);
 			return ms;
+		}
+
+		public MemoryStream Generate(MemoryStream templateStream, WorksheetMetadata<T> wsMetadata, IEnumerable<T> data)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

@@ -57,6 +57,9 @@
     <Compile Include="Import\ImportResults.cs" />
     <Compile Include="Import\IRowModelBase.cs" />
     <Compile Include="Import\ValidationResult.cs" />
+    <Compile Include="Models\CellAddress.cs" />
+    <Compile Include="Models\ColumnAddress.cs" />
+    <Compile Include="Models\RowAddress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

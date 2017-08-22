@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Export\Mappings\NpoiMappings.cs" />
     <Compile Include="Export\NpoiExcelGenerator.cs" />
+    <Compile Include="Extensions\AddressExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

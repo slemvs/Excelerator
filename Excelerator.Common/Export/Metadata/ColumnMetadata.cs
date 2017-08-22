@@ -1,4 +1,5 @@
 ﻿using System;
+using Excelerator.Common.Models;
 using Excelerator.Enums;
 
 namespace Excelerator.Common.Export.Metadata
@@ -9,6 +10,7 @@ namespace Excelerator.Common.Export.Metadata
 		public double Width { get; set; } = 20;
 		public HorizontalCellAlignmentValues HorizontalAlignment { get; set; } = HorizontalCellAlignmentValues.General;
 		public VerticalCellAlignmentValues VerticalAlignment { get; set; } = VerticalCellAlignmentValues.Center;
+		public ColumnAddress ColumnAddress { get; set; }
 	}
 
 	public class ColumnMetadata<T> : ColumnMetadata
