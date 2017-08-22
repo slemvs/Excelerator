@@ -23,7 +23,7 @@ namespace Excelerator.Examples.Export.Npoi
 			{
 				Name = "Example1",
 				StartColumn = 1,
-				StartRow = 1,
+				StartRow = 4,
 				FormatAsTable = true,
 				ColumnsMetadata = new List<ColumnMetadata<NpoiExampleModel>>
 				{
