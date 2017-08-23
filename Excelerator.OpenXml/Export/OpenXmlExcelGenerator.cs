@@ -91,5 +91,10 @@ namespace Excelerator.OpenXml.Export
 			ms.Position = 0;
 			return ms;
 		}
+
+		public MemoryStream Generate(MemoryStream templateStream, WorksheetMetadata<T> wsMetadata, IEnumerable<T> data)
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

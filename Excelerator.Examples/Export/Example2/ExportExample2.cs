@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Excelerator.Common.Export.Metadata;
 using Excelerator.Examples.Export.Example1.Model;
 using Excelerator.Examples.Export.Example2.Model;
+using Excelerator.Examples.Extensions;
 using Excelerator.Export;
 
 namespace Excelerator.Examples.Export.Example2
@@ -122,7 +123,7 @@ namespace Excelerator.Examples.Export.Example2
 			//	if (i % 100 == 0) Console.WriteLine(i);
 			//	yield return new ExcelRowModel<Example21Model>() { Data = GetModel2(i) };
 			//}, 1000000));
-			SaveToFile(ms, $"{ExportExamplesPath}\\example21.xlsx");
+			ms.SaveToFile($"{ExportExamplesPath}\\example21.xlsx");
 		}
 
 		#region Helpers

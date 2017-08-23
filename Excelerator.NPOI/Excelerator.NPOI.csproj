@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{75D30F7D-1C33-42E0-BE51-128D712EC3A1}</ProjectGuid>
+    <ProjectGuid>{68665866-FB22-4378-973F-FCEA8E497272}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Excelerator.Common</RootNamespace>
-    <AssemblyName>Excelerator.Common</AssemblyName>
+    <RootNamespace>Excelerator.NPOI</RootNamespace>
+    <AssemblyName>Excelerator.NPOI</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,27 +58,22 @@
     <Compile Include="..\.build\VersionInfo.cs">
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
-    <Compile Include="Enums\HorizontalCellAlignmentValues.cs" />
-    <Compile Include="Enums\VerticalCellAlignmentValues.cs" />
-    <Compile Include="Export\Metadata\ColumnMetadata.cs" />
-    <Compile Include="Export\IExcelGenerator.cs" />
-    <Compile Include="Export\Metadata\WorkbookMetadata.cs" />
-    <Compile Include="Export\WorkbookSettings.cs" />
-    <Compile Include="Export\Metadata\WorksheetMetadata.cs" />
-    <Compile Include="Import\ExcelColumnImportMetadata.cs" />
-    <Compile Include="Import\Exceptions\ExcelImporterException.cs" />
-    <Compile Include="Import\IExcelImporter.cs" />
-    <Compile Include="Import\ImportError.cs" />
-    <Compile Include="Import\ImportResults.cs" />
-    <Compile Include="Import\IRowModelBase.cs" />
-    <Compile Include="Import\ValidationResult.cs" />
-    <Compile Include="Models\CellAddress.cs" />
-    <Compile Include="Models\ColumnAddress.cs" />
-    <Compile Include="Models\RowAddress.cs" />
+    <Compile Include="Export\Mappings\NpoiMappings.cs" />
+    <Compile Include="Export\NpoiExcelGenerator.cs" />
+    <Compile Include="Extensions\AddressExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Excelerator.Common.nuspec" />
+    <ProjectReference Include="..\Excelerator.Common\Excelerator.Common.csproj">
+      <Project>{75d30f7d-1c33-42e0-be51-128d712ec3a1}</Project>
+      <Name>Excelerator.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Import\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

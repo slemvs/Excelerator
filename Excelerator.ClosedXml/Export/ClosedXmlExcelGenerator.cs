@@ -58,6 +58,11 @@ namespace Excelerator.ClosedXml.Export
 			return ms;
 		}
 
+		public MemoryStream Generate(MemoryStream templateStream, WorksheetMetadata<T> wsMetadata, IEnumerable<T> data)
+		{
+			throw new NotImplementedException();
+		}
+
 		private void Process(Action<int, int, ColumnMetadata<T>> action, int currentRow, WorksheetMetadata<T> md)
 		{
 			var startCol = md.StartColumn == 0 ? _startCol : md.StartColumn;
