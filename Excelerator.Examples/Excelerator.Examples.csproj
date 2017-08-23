@@ -62,6 +62,8 @@
     <Compile Include="Export\Npoi\Generator\NpoiExampleGenerator.cs" />
     <Compile Include="Export\Npoi\Model\NpoiExampleModel.cs" />
     <Compile Include="Export\Npoi\NpoiExportExample.cs" />
+    <Compile Include="Export\Npoi\NpoiTemplateExportExample.cs" />
+    <Compile Include="Extensions\FileExtensions.cs" />
     <Compile Include="Import\Example1\ImportExample1.cs" />
     <Compile Include="Import\Example1\Importer\Example1Importer.cs" />
     <Compile Include="Import\Example1\Model\Example1RowModel.cs" />

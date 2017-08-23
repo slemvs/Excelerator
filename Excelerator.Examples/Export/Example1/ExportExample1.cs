@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Excelerator.Common.Export.Metadata;
 using Excelerator.Examples.Export.Example1.Model;
+using Excelerator.Examples.Extensions;
 using Excelerator.Export;
 
 namespace Excelerator.Examples.Export.Example1
@@ -31,8 +32,9 @@ namespace Excelerator.Examples.Export.Example1
 			};
 
 			var data = new List<Example1Model>();
-			Iterate(i => data.Add(new Example1Model {Prop1 = $"prop1_{i}", Prop2 = $"prop2_{i}"}), 20);
-			SaveToFile(_generator.Generate(wsMd, data), $"{ExportExamplesPath}\\example1.xlsx");
+			Iterate(i => data.Add(new Example1Model { Prop1 = $"prop1_{i}", Prop2 = $"prop2_{i}" }), 20);
+			_generator.Generate(wsMd, data)
+				.SaveToFile($"{ExportExamplesPath}\\example1.xlsx");
 		}
 
 		#region Helpers

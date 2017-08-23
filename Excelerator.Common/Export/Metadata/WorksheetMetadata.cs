@@ -13,6 +13,7 @@ namespace Excelerator.Common.Export.Metadata
 		public int StartRow { get; set; }
 		public int StartColumn { get; set; }
 		public bool FormatAsTable { get; set; } = true;
+		public bool GenerateHeader { get; set; }
 		public List<ColumnMetadata<T>> ColumnsMetadata { get; set; }
 	}
 }

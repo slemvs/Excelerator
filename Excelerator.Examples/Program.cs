@@ -16,7 +16,8 @@ namespace Excelerator.Examples
 			_kernel = new StandardKernel(new DefaultModule());
 
 			//Get<ExportExample1>().Execute();
-			Get<NpoiExportExample>().Execute();
+			//Get<NpoiExportExample>().Execute();
+			Get<NpoiTemplateExportExample>().Execute();
 			//Get<Example2>().Execute();
 			//Get<Example1>().Execute();
 		}

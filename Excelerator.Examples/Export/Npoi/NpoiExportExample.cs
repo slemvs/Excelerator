@@ -4,6 +4,7 @@ using Excelerator.Common.Export.Metadata;
 using Excelerator.Common.Models;
 using Excelerator.Enums;
 using Excelerator.Examples.Export.Npoi.Model;
+using Excelerator.Examples.Extensions;
 using Excelerator.Export;
 
 namespace Excelerator.Examples.Export.Npoi
@@ -34,14 +35,8 @@ namespace Excelerator.Examples.Export.Npoi
 
 			var data = new List<NpoiExampleModel>();
 			Iterate(i => data.Add(new NpoiExampleModel { Prop1 = $"prop1_{i}", Prop2 = $"prop2_{i}" }), 20);
-			SaveToFile(_npoiGenerator.Generate(wsMd, data), $"{ExportExamplesPath}\\example1.xls");
-		}
-
-
-		private void Iterate(Action<int> action, int maxValue)
-		{
-			for (var i = 0; i < maxValue; i++)
-				action(i);
+			_npoiGenerator.Generate(wsMd, data)
+				.SaveToFile($"{ExportExamplesPath}\\example1.xls");
 		}
 	}
 }
