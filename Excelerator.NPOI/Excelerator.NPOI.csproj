@@ -73,6 +73,7 @@
     <Folder Include="Import\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Excelerator.NPOI.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
