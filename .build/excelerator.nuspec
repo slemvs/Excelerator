@@ -5,7 +5,7 @@
     <id>Excelerator.Common</id>
 
     <!-- The package version number that is used when resolving dependencies -->
-    <version>0.0.7</version>
+    <version>0.0.8</version>
 
     <!-- Authors contain text that appears directly on the gallery -->
     <authors>Semyon Lopatkin</authors>
@@ -33,7 +33,7 @@
     <description>Set of classes for export to and import from plain Excel files</description>
 
     <!-- Copyright information -->
-    <copyright>Copyright Р’В©2017</copyright>
+    <copyright>Copyright ©2017</copyright>
 
     <!-- Tags appear in the gallery and can be used for tag searches -->
     <tags>excel import export utility</tags>
