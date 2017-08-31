@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excelerator.Common", "Excelerator.Common\Excelerator.Common.csproj", "{75D30F7D-1C33-42E0-BE51-128D712EC3A1}"
 EndProject
@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{862AC6B4-9448-47EE-A1AE-12E25DF2783E}"
 	ProjectSection(SolutionItems) = preProject
 		.build\excelerator.nuspec = .build\excelerator.nuspec
+		.build\keyfile.snk = .build\keyfile.snk
 		.build\VersionInfo.cs = .build\VersionInfo.cs
 	EndProjectSection
 EndProject
